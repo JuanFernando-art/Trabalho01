@@ -1,0 +1,63 @@
+Lista_colaboradores = [
+    {"Nome": "João Silva", "CPF": "123.456.789-01", "Cargo": "Gerente", "Salário": 5000},
+    {"Nome": "Maria Oliveira", "CPF": "987.654.321-00", "Cargo": "Assistente", "Salário": 3000},
+    {"Nome": "Pedro Santos", "CPF": "321.654.987-02", "Cargo": "Analista", "Salário": 4500},
+    {"Nome": "Ana Costa", "CPF": "654.987.321-03", "Cargo": "Coordenadora", "Salário": 6000},
+    {"Nome": "Carlos Pereira", "CPF": "111.222.333-44", "Cargo": "Diretor", "Salário": 12000},
+    {"Nome": "Julia Almeida", "CPF": "444.555.666-55", "Cargo": "Secretária", "Salário": 2500},
+    {"Nome": "Rafael Souza", "CPF": "555.444.777-66", "Cargo": "Desenvolvedor", "Salário": 4000},
+    {"Nome": "Fernanda Lima", "CPF": "666.777.888-77", "Cargo": "Supervisor", "Salário": 7000},
+    {"Nome": "Marcelo Rocha", "CPF": "777.888.999-88", "Cargo": "Consultor", "Salário": 3500},
+    {"Nome": "Roberta Martins", "CPF": "888.999.000-99", "Cargo": "Assistente", "Salário": 2800},
+    {"Nome": "Lucas Almeida", "CPF": "234.567.890-12", "Cargo": "Gerente", "Salário": 5200},
+    {"Nome": "Fernanda Souza", "CPF": "345.678.901-23", "Cargo": "Analista", "Salário": 4600},
+    {"Nome": "Carlos Silva", "CPF": "456.789.012-34", "Cargo": "Coordenadora", "Salário": 6200},
+    {"Nome": "Juliana Rocha", "CPF": "567.890.123-45", "Cargo": "Secretária", "Salário": 2700},
+    {"Nome": "Ricardo Santos", "CPF": "678.901.234-56", "Cargo": "Desenvolvedor", "Salário": 4200},
+    {"Nome": "Paula Oliveira", "CPF": "789.012.345-67", "Cargo": "Consultor", "Salário": 3600},
+    {"Nome": "Eduardo Lima", "CPF": "890.123.456-78", "Cargo": "Supervisor", "Salário": 7100},
+    {"Nome": "Mariana Costa", "CPF": "901.234.567-89", "Cargo": "Diretor", "Salário": 12500},
+]
+
+def Lista_original():
+    print("Lista original de colaboradores")
+    print(f"{'Nome':<20} {'CPF':<15} {'Cargo':<15} {'Salário':<8}")
+    print("="*65)
+    for pessoa in Lista_colaboradores:
+        print(f"{pessoa['Nome']:<20} {pessoa['CPF']:<15} {pessoa['Cargo']:<15} R${pessoa['Salário']:>8,.2f}")
+    print("="*65)
+
+def Lista_alfabetica():
+    print("Lista de colaboradores em ordem alfabética")
+    print(f"{'Nome':<20} {'CPF':<15} {'Cargo':<15} {'Salário':<8}")
+    print("="*65)
+    lista_ordenada = sorted(Lista_colaboradores, key=lambda x: x["Nome"])
+    for pessoa in lista_ordenada:
+        print(f"{pessoa['Nome']:<20} {pessoa['CPF']:<15} {pessoa['Cargo']:<15} R${pessoa['Salário']:>8,.2f}")
+    print("="*65)
+
+def Lista_salarial():
+    print("Lista de colaboradores em ordem salarial")
+    print(f"{'Nome':<20} {'CPF':<15} {'Cargo':<15} {'Salário':<8}")
+    print("="*65)
+    lista_ordenada = sorted(Lista_colaboradores, key=lambda x: x["Salário"])
+    for pessoa in lista_ordenada:
+        print(f"{pessoa['Nome']:<20} {pessoa['CPF']:<15} {pessoa['Cargo']:<15} R${pessoa['Salário']:>8,.2f}")
+    print("="*65)
+
+def Lista_por_cargo():
+    cargo_desejado = input("Digite o cargo que deseja ver: ").strip()
+    print("="*65)
+    colaboradores_filtrados = [pessoa for pessoa in Lista_colaboradores if pessoa['Cargo'].lower() == cargo_desejado.lower()]
+    if colaboradores_filtrados:
+        print(f"\nLista de colaboradores com o cargo de '{cargo_desejado}':")
+        print(f"{'Nome':<20} {'CPF':<15} {'Cargo':<15} {'Salário':<8}")
+        print("="*65)
+        for pessoa in colaboradores_filtrados:
+            print(f"{pessoa['Nome']:<20} {pessoa['CPF']:<15} {pessoa['Cargo']:<15} R${pessoa['Salário']:>8,.2f}")
+        print("="*65)
+    else:
+        print("="*65)
+        print(f"\nNão há colaboradores com o cargo de '{cargo_desejado}'.")
+        print("="*65)
+        Lista_por_cargo()
