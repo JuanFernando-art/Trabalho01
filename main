@@ -1,0 +1,28 @@
+from funções import Lista_original, Lista_alfabetica, Lista_salarial, Lista_por_cargo
+
+while True:
+    print("="*65)
+    print("Selecione a opção desejada")
+    print("1 - Listar Colaboradores")
+    print("2 - Relatório de colaboradores em ordem alfabética")
+    print("3 - Relatório de colaboradores em ordem Salarial")
+    print("4 - Listar colaboradores por cargo")
+    print("5 - Sair")
+    print("="*65)
+    Escolha = input("Digite sua Escolha: ")
+    print("="*65)
+    match Escolha:
+        case "1":
+            Lista_original()
+        case "2":
+            Lista_alfabetica()
+        case "3":
+            Lista_salarial()
+        case "4":
+            Lista_por_cargo()
+        case "5":
+            print("Saindo...")
+            print("="*65)
+            break
+        case _:
+            print("Opção invalida")
